@@ -19,7 +19,7 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>STM32N6570-DK.ioc</name>
+			<name>STM32CubeIDE.ioc</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/STM32N6570-DK.ioc</locationURI>
 		</link>
