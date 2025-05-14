@@ -1,0 +1,70 @@
+# Unused drivers
+Drivers/CMSIS/DSP/
+Drivers/CMSIS/NN/
+
+# CubeMX
+.mxproject
+backup_*.ioc
+
+# TouchGFX
+Appli*/TouchGFX/*_backup.touchgfx
+Appli*/TouchGFX/build/
+Appli*/TouchGFX/config/
+Appli*/TouchGFX/generated/
+Appli*/TouchGFX/simulator/
+Appli*/TouchGFX/target.config
+Appli*/Middlewares/ST/touchgfx/
+Appli*/Middlewares/ST/touchgfx_components/
+Appli*/Middlewares/ST/touchgfx_backup*/
+Appli*/gcc/components.mk
+FSBL/TouchGFX/build/
+
+# IAR
+EWARM/settings/
+EWARM/*.eww.bak
+
+EWARM/Appli*/settings/
+EWARM/Appli*/STM32*/
+EWARM/Appli*/*.dep
+EWARM/Appli*/*.ewt
+EWARM/Appli*/*.ewd.bak
+EWARM/Appli*/*.ewp.bak
+
+EWARM/FSBL/settings/
+EWARM/FSBL/STM32*/
+EWARM/FSBL/*.dep
+EWARM/FSBL/*.ewt
+EWARM/FSBL/*.ewd.bak
+EWARM/FSBL/*.ewp.bak
+
+Secure_nsclib/Project-trusted.bin
+Secure_nsclib/STM32N6570-DK*
+Secure_nsclib/*.o
+
+
+# CubeIDE
+STM32CubeIDE/.settings/
+STM32CubeIDE/Appli*/.settings/
+STM32CubeIDE/Appli*/Debug/
+STM32CubeIDE/Appli*/Release/
+STM32CubeIDE/FSBL/.settings/
+STM32CubeIDE/FSBL/Debug/
+STM32CubeIDE/FSBL/Release/
+
+# Keil
+MDK-ARM/Appli*/RTE/
+MDK-ARM/Appli*/STM32*/
+MDK-ARM/Appli*/DebugConfig/
+MDK-ARM/Appli*/*.lst
+MDK-ARM/Appli*/*.out
+MDK-ARM/Appli*/*vguix.*
+MDK-ARM/FSBL/RTE/
+MDK-ARM/FSBL/STM32*/
+MDK-ARM/FSBL/DebugConfig/
+MDK-ARM/FSBL/*.lst
+MDK-ARM/FSBL/*.out
+MDK-ARM/FSBL/*vguix.*
+MDK-ARM/*uvgui*
+
+.metadata
+.settings
