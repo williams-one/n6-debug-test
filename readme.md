@@ -34,9 +34,9 @@ To assist with signing and flashing the binaries, helper scripts are provided in
 
 1. **Preparation:**
    - Set the switch labeled BOOT1 (the bottom one) is in the rightmost position and reset the board. This will put the board in programming mode, and the screen will remain black.
-   - If the flashing fails, it is sometimes necessary to move the switch labeled BOOT0 (the upper one) to the rightmost position as well.  
+   - If the flashing fails, it is sometimes necessary to move the switch labeled BOOT0 (the upper one) to the rightmost position as well.
    - Scripts (.bat files) for flashing your application are provided in the *Flash Scripts/* folder of your project. To use them, simply double-click on the appropriate script.
- 
+
 3. **Flashing:**
    - Scripts are provided for both IAR and STM32CubeIDE, which also suppports both the Debug and the Release configurations. There are four scripts:
      1. One to load the FSBL.
@@ -53,7 +53,7 @@ To assist with signing and flashing the binaries, helper scripts are provided in
 It is not possible to debug the application in the usual way. Instead it can be done in the following two ways:
 
 1. **Connecting to running target:**
-   - Flash the entire program (FSBL, Appli and assets) like described above. 
+   - Flash the entire program (FSBL, Appli and assets) like described above.
     - If using CubeIDE:
       - Launch a debug session with the configuration named STM32N6570-DK_Attach_To_Running.
    - If using IAR:
@@ -61,21 +61,23 @@ It is not possible to debug the application in the usual way. Instead it can be 
 
    At this point, breakpoints and stepping are possible as usual.
 
-   A loop is available at the beginning of the main() function for use if the board crashes before it is possible to attach the debugger: 
+   A loop is available at the beginning of the main() function for use if the board crashes before it is possible to attach the debugger:
    - Compile the project with the debugFlag variable set to 1
-   - Flash, run and connect the debugger. 
+   - Flash, run and connect the debugger.
    - The program will be caught in the loop. Pause execution and change the value of debugFlag with the debugger tool.
    - Breakpoints and single stepping can be used to locate the error.
 
 2. **Debugging from FSBL:**
    The TBS supports continuing into the secure application when debugging the FSBL. This makes it possible to set breakpoints in the initialization code instead of using the catch loop.
-   - Compile and flash as usual using the scripts.
+   - Compile and flash as usual using the scripts (**NOTE**: leave the BOOT1 switch on the right to enable DEV boot)
    - If using CubeIDE:
       - Launch a debug session with the configuration named STM32N6570-DK_FSBL_Appli_Debug
    - If using IAR:
       - Set the FSBL sub-project as active project
       - Click "Download and Debug"
    - The IDE will download the FSBL to RAM, loading symbols for both FSBL and Appli. The debugger is stopped at the entry point of the FSBL, and breakpoints can be set as needed in both the FSBL and the secure application.
+
+   > **NOTE**: The `STM32N6570-DK_FSBL_Appli_Debug` configuration has been changed to load only FSBL elf (download and symbols).  Using elf+bin caused a fault during startup
 
    If the program crashes to a state where it is not possible to connect the debugger, the following steps should resolve that:
    - Disconnect the board
