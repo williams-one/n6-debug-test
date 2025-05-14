@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * @file    stm32_boot_lrun.h
+  * @file    stm32_boot_xip.h
   * @author  MCD Application Team
-  * @brief   Header for stm32_boot_lrun.c file.
+  * @brief   Header for stm32_boot_xip.c file.
   ******************************************************************************
   * @attention
   *
@@ -15,59 +15,56 @@
   *
   ******************************************************************************
   */
+/* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32_BOOT_LRUN_H__
-#define __STM32_BOOT_LRUN_H__
+#ifndef __STM32_BOOT_XIP_H__
+#define __STM32_BOOT_XIP_H__
 
 #ifdef __cplusplus
  extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32_extmem_conf.h"
 
-/** @addtogroup BOOT_LRUN
+/** @addtogroup BOOT_XIP
   * @{
   */
 
 /* Exported defines ---------------------------------------------------------*/
 /**
-  *  @defgroup BOOT_LRUN_Private_Defines Boot LRUN exported definitions
+  *  @defgroup BOOT_XIP_Private_Defines Boot XIP exported definitions
   * @{
   */
 /**
- * @brief List of status codes for LRUN
+ * @brief List of status codes for XIP
  */
 typedef enum {
      BOOT_OK,
      BOOT_ERROR_UNSUPPORTED_MEMORY, /* !< unsupported memory type         */
      BOOT_ERROR_NOBASEADDRESS,      /* !< not base address for the memory */
-     BOOT_ERROR_MAPPEDMODEFAIL,     /* !< */
-     BOOT_ERROR_COPY,
+     BOOT_ERROR_MAPPEDMODEFAIL,     /* !< error during map processing */
+     BOOT_ERROR_INCOMPATIBLEMEMORY, /* !< selected memory not compatible with XIP boot */
+     BOOT_ERROR_DRIVER,
 }BOOTStatus_TypeDef;
 
 /**
   * @}
   */
 
-
 /* Private function prototypes -----------------------------------------------*/
 /**
-  *  @defgroup BOOT_LRUN_Exported_Functions Boot LRUN exported functions
+  *  @defgroup BOOT_XIP_Exported_Functions Boot XIP exported functions
   * @{
   */
 
 /**
- * @brief This function boots on the application, the operation consists in mapping 
- *        the memories, loading the code and jumping in the application. 
+ * @brief This function boots on the application, the operation consists in mapping
+ *        the memory and jumping in the application.
  *
  * @return @ref BOOTStatus_TypeDef
  **/
- BOOTStatus_TypeDef BOOT_Application(void);
- 
- uint32_t BOOT_GetApplicationSize(uint32_t img_addr);
- uint32_t BOOT_GetApplicationVectorTable(void);
+BOOTStatus_TypeDef BOOT_Application(void);
 
 /**
   * @}
@@ -81,4 +78,4 @@ typedef enum {
 }
 #endif
 
-#endif /* __STM32_BOOT_LRUN_H__ */
+#endif /* __STM32_BOOT_XIP_H__ */
